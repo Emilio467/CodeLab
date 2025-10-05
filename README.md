@@ -654,3 +654,224 @@ fun GreetingPreview() {
     }
 }
 
+<img width="1359" height="766" alt="image" src="https://github.com/user-attachments/assets/da0b44fd-9ee5-42ea-bb68-d9f468d5d795" />
+
+package com.example.compose
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.compose.ui.theme.ComposeTheme
+
+class MainActivity2 : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            ComposeTheme {
+                ComposablesQuadrantsScreen()
+            }
+        }
+    }
+}
+
+@Composable
+fun ComposablesQuadrantsScreen() {
+    Column(modifier = Modifier.fillMaxSize()) {
+        Row(modifier = Modifier.weight(1f)) {
+            Quadrant(
+                title = "Text composable",
+                description = "Displays text and follows the recommended Material Design guidelines.",
+                backgroundColor = Color(0xFFEADDFF),
+                modifier = Modifier.weight(1f)
+            )
+            Quadrant(
+                title = "Image composable",
+                description = "Creates a composable that lays out and draws a given Painter class object.",
+                backgroundColor = Color(0xFFD0BCFF),
+                modifier = Modifier.weight(1f)
+            )
+        }
+        Row(modifier = Modifier.weight(1f)) {
+            Quadrant(
+                title = "Row composable",
+                description = "A layout composable that places its children in a horizontal sequence.",
+                backgroundColor = Color(0xFFB69DF8),
+                modifier = Modifier.weight(1f)
+            )
+            Quadrant(
+                title = "Column composable",
+                description = "A layout composable that places its children in a vertical sequence.",
+                backgroundColor = Color(0xFFF6EDFF),
+                modifier = Modifier.weight(1f)
+            )
+        }
+    }
+}
+
+@Composable
+fun Quadrant(title: String, description: String, backgroundColor: Color, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(backgroundColor)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = title,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        Text(
+            text = description
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ComposablesQuadrantsPreview() {
+    ComposeTheme {
+        ComposablesQuadrantsScreen()
+    }
+}
+
+<img width="1359" height="767" alt="image" src="https://github.com/user-attachments/assets/1f9a8a86-404f-415b-a176-9169ab4d1c08" />
+
+package com.example.compose
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.compose.ui.theme.ComposeTheme
+
+@Composable
+fun CompletedTasksScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val image = painterResource(id = R.drawable.ic_task_completed)
+        Image(
+            painter = image,
+            contentDescription = "All tasks completed"
+        )
+        Text(
+            text = "All tasks completed",
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
+        )
+        Text(
+            text = "Nice work!",
+            fontSize = 16.sp
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CompletedTasksPreview() {
+    ComposeTheme {
+        CompletedTasksScreen()
+    }
+}
+
+<img width="1359" height="766" alt="image" src="https://github.com/user-attachments/assets/95d5aab9-9415-43ea-9605-b4f1b111fae7" />
+
+package com.example.compose
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.compose.ui.theme.ComposeTheme
+
+class MainActivity3 : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            ComposeTheme {
+                BusinessCardScreen()
+            }
+        }
+    }
+}
+
+@Composable
+fun BusinessCardScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(bottom = 24.dp)
+        ) {
+
+            Text("Seu Nome", fontWeight = FontWeight.Bold, fontSize = 24.sp)
+            Text("Cargo", fontSize = 16.sp)
+        }
+
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.Start
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.Phone, contentDescription = "Telefone")
+                Text(" (11) 99999-9999", fontSize = 16.sp)
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Default.Email, contentDescription = "E-mail")
+                Text(" email@exemplo.com", fontSize = 16.sp)
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BusinessCardPreview() {
+    ComposeTheme {
+        BusinessCardScreen()
+    }
+}
