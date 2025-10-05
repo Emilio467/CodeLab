@@ -544,5 +544,11 @@ fun main() {
     mostrarClimaCidade("Cidade da Guatemala", 50, 55, 7)
 }
 
+.Android studio
 
+<img width="1292" height="687" alt="image" src="https://github.com/user-attachments/assets/ac1075dc-b8ae-4987-9463-32b335461891" />
+
+<img width="1355" height="767" alt="image" src="https://github.com/user-attachments/assets/1febb4ba-6697-4f6f-b5fc-362af1269ebe" />
+
+![Imagem do WhatsApp de 2025-10-05 à(s) 16 45 34_33e820d1](https://github.com/user-attachments/assets/84048d73-2abd-49d1-803c-58bd22d07373)
 
